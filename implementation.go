@@ -18,11 +18,11 @@ func PrefixToPostfix(input string) (string, error) {
 				return "", errors.New("invalid expression: insufficient operands")
 			}
 
-			operand1 := stack[len(stack)-1]
-			operand2 := stack[len(stack)-2]
+			operand2 := stack[len(stack)-1] // Correct order
+			operand1 := stack[len(stack)-2] // Correct order
 			stack = stack[:len(stack)-2]
 
-			result := token + " " + operand1 + " " + operand2
+			result := operand2 + " " + operand1 + " " + token // Correct order
 			stack = append(stack, result)
 		} else {
 			stack = append(stack, token)

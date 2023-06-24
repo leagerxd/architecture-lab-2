@@ -1,10 +1,10 @@
-package lab2
+package main
 
 import (
 	"flag"
 	"fmt"
 
-	"github.com/leagerxd/architecture-lab-2/lab2"
+	lab2 "github.com/leagerxd/architecture-lab-2/lab2"
 )
 
 var (
