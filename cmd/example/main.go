@@ -15,7 +15,7 @@ var (
 func main() {
 	flag.Parse()
 
-	result, err := lab2.PrefixToPostfix(*inputExpression)
+	result, err := lab2.EvaluatePrefixExpression(*inputExpression)
 	if err != nil {
 		fmt.Println("Error:", err)
 		return

@@ -6,29 +6,29 @@ import (
 	"github.com/stretchr/testify/assert"
 )
 
-func TestPrefixToPostfix(t *testing.T) {
+func TestEvaluatePrefixExpression(t *testing.T) {
 	input := "+ 2 3"
-	expected := "2 3 +"
+	expected := 5
 
-	result, err := PrefixToPostfix(input)
+	result, err := EvaluatePrefixExpression(input)
 	assert.Nil(t, err)
 	assert.Equal(t, expected, result)
 }
 
-func TestPrefixToPostfix_ComplexExpression(t *testing.T) {
-	input := "+ * 3 + 4 2 5"
-	expected := "4 2 + 3 * 5 +"
+func TestEvaluatePrefixExpression_ComplexExpression(t *testing.T) {
+	input := "* + 3 + 4 2 5"
+	expected := 45
 
-	result, err := PrefixToPostfix(input)
+	result, err := EvaluatePrefixExpression(input)
 	assert.Nil(t, err)
 	assert.Equal(t, expected, result)
 }
 
-func TestPrefixToPostfix_InvalidExpression(t *testing.T) {
+func TestEvaluatePrefixExpression_InvalidExpression(t *testing.T) {
 	input := "+ 2"
-	expected := ""
+	expected := 0
 
-	result, err := PrefixToPostfix(input)
+	result, err := EvaluatePrefixExpression(input)
 	assert.NotNil(t, err)
 	assert.Equal(t, expected, result)
 }
